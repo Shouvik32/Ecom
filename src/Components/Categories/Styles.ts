@@ -7,8 +7,5 @@ export const styles=`
     padding: 10px 10px;
     margin-top: 90px;
 }
-.row{
-     margin-right: 0px!important;
-}
 
 `

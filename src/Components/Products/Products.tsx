@@ -1,11 +1,13 @@
 import React,{useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from '../Cart/cart.slice';
-import { Product,fetchProduct} from './Products.slice';
-import { AppDispatch } from '../../store/store';
+import { addToCart } from '../../Redux/Slice/cart.slice';
+import { Product,fetchProduct} from '../../Redux/Slice/Products.slice';
+import { AppDispatch } from '../../Redux/store/store';
 import { Link,useNavigate } from 'react-router-dom';
 import { Alert, Grid, Snackbar } from '@mui/material';
 import Banner from '../Banner/Banner';
+import Category from '../Categories/Category';
+
 
 const Products: React.FC =() =>{
     let navigate=useNavigate();
@@ -32,10 +34,11 @@ const Products: React.FC =() =>{
   
   return (
     <>
-    
    <Banner/>
-   {!load&& <div className='product-list'>
+   <Category/>
     <h2  className="list">List of products</h2>
+   {!load&& <div className='product-list'>
+   
    {/* { <button onClick={()=>navigate("/cart")}>Go to cart</button>} */}
     <Grid container spacing={3} >
     
@@ -49,7 +52,7 @@ const Products: React.FC =() =>{
             <p className="productPrice">{`$${product.price}`}</p>
             
         </div>
-        <button onClick={()=>{
+        <button className="btn add_to_cart" onClick={()=>{
               dispatch(addToCart(product))
              setopen(true)
               }}>Add to Cart</button>

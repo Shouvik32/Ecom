@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice,PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
-import { RootState } from "../../store/store";
+import { RootState } from "../store/store";
 
 
 export interface Product{
@@ -33,6 +33,7 @@ export let initialproductsList:string[]=[]
                 builder.addCase(fetchCategoryData.fulfilled,(state,action: PayloadAction<string[]>)=>{
                     return state=action.payload
                 })
+                
                 .addCase(fetchProductsByCategory.fulfilled,(state,action:PayloadAction<any>)=>{
                     return state=action.payload
                 })

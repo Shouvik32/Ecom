@@ -1,11 +1,11 @@
 import { Alert, Grid, Snackbar } from '@mui/material'
-import React,{useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
 import { useDispatch , useSelector} from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
-import { AppDispatch } from '../../store/store'
-import { addToCart } from '../Cart/cart.slice'
-import { Product } from '../Products/Products.slice'
-import { fetchProductsByCategory } from './Category.slice'
+import { AppDispatch } from '../../Redux/store/store'
+import { addToCart } from '../../Redux/Slice/cart.slice'
+import { Product } from '../../Redux/Slice/Products.slice'
+import { fetchProductsByCategory } from '../../Redux/Slice/Category.slice'
 
 
 
@@ -15,17 +15,23 @@ const ProductByCategory = () => {
     const dispatch=useDispatch<AppDispatch>()
     const [open,setopen]=useState<boolean>(false)
     let productsbyCategory:any=useSelector((state:any)=>state.ProductsSlice)
-    const [product,setproduct]=useState<Product[]>([])
+    const [product,setproduct]=useState<Product[]|null>(null)
+    const [load,setLoad]=useState<boolean>(false)
     useEffect(() => {
+        console.log("running");
+        
+        setproduct(null)
+        setLoad(true)
      name && dispatch(fetchProductsByCategory(name))
     }, [])
     useEffect(()=>{
+        product&&setLoad(false)
         console.log(productsbyCategory);
         setproduct(productsbyCategory)
     },[productsbyCategory])
   return (
     <div>
-          <Grid container spacing={3}>
+          {!load&&<Grid container spacing={3}>
         {name&&productsbyCategory&&product&&product.map((product:Product,key:number)=>
           <Grid item xs={4} key={product.id} >
              <div key={key} className="product" onClick={()=>{
@@ -35,12 +41,17 @@ const ProductByCategory = () => {
             <p className="productPrice">{`$${product.price}`}</p>
            
         </div>  
-        <button onClick={()=>{
+        <button className=' btn add_to_cart' onClick={()=>{
               dispatch(addToCart(product))
               }}>Add to Cart</button>
         </Grid>
         )}
-        </Grid>
+        </Grid>}
+        {load &&<div className="spinner-square">
+        <div className="square-1 square"></div>
+        <div className="square-2 square"></div>
+        <div className="square-3 square"></div>
+</div>}
         <Snackbar
   open={open}
   onClose={()=>setopen(false)}

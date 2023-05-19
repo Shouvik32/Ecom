@@ -1,20 +1,3 @@
-/*--------------------------------------------------------------------- File Name: style.css ---------------------------------------------------------------------*/
-
-
-/*--------------------------------------------------------------------- import Fonts ---------------------------------------------------------------------*/
-
-
-
-
-/*****---------------------------------------- 1) font-family: 'Rajdhani', sans-serif;
- 2) font-family: 'Poppins', sans-serif;
- ----------------------------------------*****/
-
-
-/*--------------------------------------------------------------------- import Files ---------------------------------------------------------------------*/
-
-
-/*--------------------------------------------------------------------- skeleton ---------------------------------------------------------------------*/
 
 * {
     box-sizing: border-box !important;
@@ -34,7 +17,7 @@ body {
     overflow-x: hidden;
 }
 
-a {
+a,.shop {
     color: #1f1f1f;
     text-decoration: none !important;
     outline: none !important;
@@ -60,7 +43,17 @@ h6 {
     color: #111111;
     margin: 0
 }
+.shop{
+  border-radius:30px ;
+  background-color:#ffd35a ;
 
+}
+.empty_cart{
+  margin: 500px  auto;
+  width: 100%;
+  max-width: 100%;
+
+}
 h1 {
     font-size: 24px
 }
@@ -111,6 +104,7 @@ button:focus {
 ul,
 li,
 ol {
+  cursor: pointer;
     margin: 0px;
     padding: 0px;
     list-style: none;
@@ -149,42 +143,16 @@ img {
     outline: 0;
 }
 
-.paddind_bottom_0 {
-    padding-bottom: 0 !important;
-}
 
-.btn-custom {
-    margin-top: 20px;
-    background-color: transparent !important;
-    border: 2px solid #ddd;
-    padding: 12px 40px;
-    font-size: 16px;
-}
-
-.lead {
-    font-size: 18px;
-    line-height: 30px;
-    color: #767676;
-    margin: 0;
-    padding: 0;
-}
 
 .form-control:focus {
     border-color: #ffffff !important;
     box-shadow: 0 0 0 .2rem rgba(255, 255, 255, .25);
 }
 
-.navbar-form input {
-    border: none !important;
-}
 
 .badge {
     font-weight: 500;
-}
-
-blockquote {
-    margin: 20px 0 20px;
-    padding: 30px;
 }
 
 button {
@@ -216,7 +184,7 @@ button {
 .header_section {
     width: 100%;
     float: left;
-    background: rgb(58, 181, 238);
+    background: #0073ff;
     height: auto;
     background-size: 100%;
     background-repeat: no-repeat;
@@ -241,10 +209,10 @@ button {
 }
 
 .banner_section {
-  background-image: url(../images/banner-bg.png);
+   background-image: url(../images/banner-bg.png); 
+  margin-bottom: 3rem;
     width: 100%;
-    float: left;
-    padding-bottom: 129px;
+    
 }
 
 .banner_taital {
@@ -350,6 +318,11 @@ button {
     border-radius: 3px;
     font-size: 18px;
 }
+.search_text:hover {
+  background: transparent;
+  border: 2px solid #fffaec;
+  transition: 0.5s;
+}
 
 .Enter_text {
     color: #cbc8c8;
@@ -404,7 +377,10 @@ button {
     background: #ffd35a;
     color: #fff;
 }
-
+.add_to_cart{
+  background: #ffd35a;
+    color: #fff;
+}
 
 .main {
     display: flex;
@@ -429,6 +405,7 @@ button {
 
 .box_main:hover .fashion_text {
     color: #0f0e0c;
+    cursor: pointer;
 }
 
 .box_main:hover .icon_2 {
@@ -517,11 +494,10 @@ button {
     padding-bottom: 20px;
 }
 
-.category_section_2 {
+.category_section {
     width: 100%;
     float: left;
-    margin-top: 90px;
-    padding-bottom: 90px;
+    padding: 10px 0px 0px 40px!important;
 }
 
 .beds_section {
@@ -607,15 +583,6 @@ button {
     float: left;
     background-color: #ffffff;
     padding: 30px;
-}
-
-.bed_text_1 {
-    width: 100%;
-    float: left;
-    color: #131313;
-    font-size: 24px;
-    font-weight: bold;
-    text-transform: uppercase;
 }
 
 .seemore_bt_1 {
@@ -724,13 +691,13 @@ button {
 }
 
 .client_section_2 {
-    width: 90%;
-    float: left;
-    background-color: #fff;
-    margin-left: 100px;
-    box-shadow: 0px 1px 10px 1px #888888;
-    padding: 25px;
-    margin-top: 75px;
+  width: 90%;
+  float: left;
+  background-color: #fff;
+  margin-left: 100px;
+  box-shadow: 0px 1px 10px 1px #888888;
+  padding: 25px;
+  margin-top: 75px;
 }
 
 .nolmal_text {
@@ -1062,8 +1029,14 @@ button {
 .navbar {
     padding: .5rem 0px;
 }
+.navbar img{
+  margin-right: 50em;
+}
 
-
+.navbar ul li{
+  margin: 0px 10px;
+  color: #fffaec;
+}
 .App {
   text-align: center;
 }
@@ -1121,25 +1094,184 @@ button {
 .square-3 {
   animation: square-anim 1200ms cubic-bezier(0.445, 0.05, 0.55, 0.95) 400ms infinite;
 }
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.login-box .user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #ffd35a;
+  font-size: 12px;
+}
+.product-list{
+  display:flex;
+}
+.login-box form a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #ffd35a;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px
+}
+
+.login-box a:hover {
+  background: #ffd35a;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #f6e657,
+              0 0 25px #f6e657,
+              0 0 50px #f6e657,
+              0 0 100px #f6e657;
+}
+
+.login-box a span {
+  position: absolute;
+  display: block;
+}
+
+.login-box a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #fff);
+  animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,100% {
+    left: 100%;
+  }
+}
+
+.login-box a span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #fff);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: .25s
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%,100% {
+    top: 100%;
+  }
+}
+
+.login-box a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #fff);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: .5s
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%,100% {
+    right: 100%;
+  }
+}
+
+.login-box a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #fff);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: 1.75s
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,100% {
+    bottom: 100%;
+  }
+}
 
 @keyframes square-anim {
   0% {
       height: 80px;
-      background-color: rgb(111, 163, 240);
+      background-color: #ffd35a;
   }
   20% {
       height: 80px;
   }
   40% {
       height: 120px;
-      background-color: rgb(111, 200, 240);
+      background-color: #ffe600;
   }
   80% {
       height: 80px;
   }
   100% {
       height: 80px;
-      background-color: rgb(111, 163, 240);
+      background-color: #ffd35a;
   }
 }
 @keyframes App-logo-spin {
