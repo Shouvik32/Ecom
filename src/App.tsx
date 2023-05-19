@@ -8,7 +8,8 @@ import SingleProduct from './Components/Products/SingleProduct';
 import Category from './Components/Categories/Category';
 import ProductByCategory from './Components/Categories/ProductByCategory';
 import Banner from './Components/Banner/Banner';
-import Login from './Components/Login/Login';
+import Login from './Components/Auth/Login';
+import Profile from './Components/Profile/Profile';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path='/categories' element={<Category/>}/>
         <Route path='/category/:name' element={<ProductByCategory/>}/>
         <Route path='/login' element={<Login/>}/>
+        <Route path='/profile' element={<Profile/>}/>
         </Routes>
   </BrowserRouter>
   

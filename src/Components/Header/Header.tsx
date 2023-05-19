@@ -6,10 +6,25 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useSelector } from 'react-redux';
 import { getTotalAmount } from '../../Redux/Slice/cart.slice';
 import logo from "../../images/icon-9.png";
+import Logout from '../Auth/Logout';
 
 const Header = () => {
     const navigate=useNavigate()
     const totalAmount=useSelector(getTotalAmount)
+    const token=localStorage.getItem("token")
+    const goToCart=()=>{
+      console.log("clicked");
+      
+      if(token){
+         navigate("/cart")
+      }
+      else{
+         navigate("/login")
+      }
+    }
+    
+   
+    
   return (
     <>
     <style>{headerStyles}</style>
@@ -47,7 +62,7 @@ const Header = () => {
                      <li className="nav-item">
                      <Link to="/categories">Categories</Link>
                      </li>
-                     <li><div className='cart' onClick={()=>navigate('/cart')}>
+                     <li><div className='cart' onClick={goToCart}>
                     <Badge badgeContent={totalAmount>0?totalAmount:'0'} sx={{color:"black"}}>
                     <ShoppingCartIcon/>
                      </Badge>
@@ -55,6 +70,8 @@ const Header = () => {
                      </li>
                   </ul>
                </div>
+               <button onClick={()=>navigate("/login")}>Login</button>
+               {localStorage.token&&<Logout/>}
             </nav>
          </div>
          </div>

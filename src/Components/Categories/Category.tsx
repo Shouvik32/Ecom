@@ -32,7 +32,7 @@ console.log(category);
   return (
     <>
     <style>{styles}</style>
-      {!load&&<div className="container">
+      {!load&&<div className="container-fluid">
          <div className="category_section">
          <div className="row">
          

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState ,useEffect} from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import {  loginUser } from '../../Redux/Slice/LoginSlice';
@@ -15,7 +15,16 @@ const Login:React.FC = () => {
     const handleLogin=()=>{
       dispatch(loginUser({username,password}))
       //navigate('/')
+      setTimeout(() => {
+        navigate("/profile")
+      }, 3000);
+      
     }
+    useEffect(() => {
+      console.log(localStorage.token);
+      
+    
+    }, [])
   return (
     <>
         <div className="login-box">
