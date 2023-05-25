@@ -1,5 +1,7 @@
 import React, { useState,useEffect } from 'react'
 
+
+
 const Banner:React.FC = () => {
     const [search,setSearch]=useState<string>("")
     useEffect(() => {
@@ -37,4 +39,4 @@ const Banner:React.FC = () => {
   )
 }
 
-export default Banner
+export default Banner;

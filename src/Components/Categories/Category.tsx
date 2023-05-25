@@ -32,8 +32,11 @@ console.log(category);
   return (
     <>
     <style>{styles}</style>
+    
       {!load&&<div className="container-fluid">
+        
          <div className="category_section">
+         
          <div className="row">
          
         {category.length>0&& category.map((index:string,key:number)=>
@@ -49,7 +52,7 @@ console.log(category);
        
         </div>
          </div>
-         Shop By Category
+        
          </div>}
       {load && <div className="spinner-square">
         <div className="square-1 square"></div>

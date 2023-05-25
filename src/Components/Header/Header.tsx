@@ -15,16 +15,17 @@ const Header = () => {
     const goToCart=()=>{
       console.log("clicked");
       
-      if(token){
-         navigate("/cart")
-      }
-      else{
-         navigate("/login")
-      }
-    }
+   //    if(token){
+   //       navigate("/cart")
+   //    }
+   //    else{
+   //       navigate("/login")
+   //    }
+   //  
+   navigate("/cart")
     
    
-    
+    }
   return (
     <>
     <style>{headerStyles}</style>
@@ -70,7 +71,7 @@ const Header = () => {
                      </li>
                   </ul>
                </div>
-               <button onClick={()=>navigate("/login")}>Login</button>
+               <button className="auth" onClick={()=>navigate("/login")}>Login</button>
                {localStorage.token&&<Logout/>}
             </nav>
          </div>

@@ -28,15 +28,39 @@ const SingleProduct:React.FC = () => {
   return (
     <>
    {!load &&<> 
-   <img src={product.image} style={{height:'50px',width:'50px'}} alt="product image"/>
-    {product.title}
-     {product.description}
-     {product.price}
-{rate&&<Rating name="read-only" value={rate} readOnly />}
-     <button className='btn add_to_cart' onClick={()=>{ 
+    <div className="container">
+		<div className="card">
+			<div className="container-fliud">
+				<div className="wrapper row">
+					<div className="preview col-md-6">
+						<div className="preview-pic tab-content">
+						  <div className="tab-pane active" id="pic-1"><img className='product_image' src={product.image} /></div>
+						</div>
+					</div>
+					<div className="details col-md-6">
+						<h3 className="product-title"> {product.title}</h3>
+						<div className="rating">
+							<div className="stars">
+              {rate&&<Rating name="read-only" value={rate} readOnly />}
+							</div>
+							<span className="review-no">41 reviews</span>
+						</div>
+						<p className="product-description">{product.description}</p>
+						<h4 className="price">current price: <span>${product.price}</span></h4>
+						<p className="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
+						
+						<div className="action">
+            <button className='btn add_to_cart' onClick={()=>{ 
         dispatch(addToCart(product))
         setopen(true)
-    }}>Add to Cart</button>
+        }}>Add to Cart</button>
+							<button className="like btn btn-default" type="button"><span className="fa fa-heart"></span></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
     </>}
      <Snackbar
   open={open}

@@ -6,6 +6,7 @@ export const styles=`
     border-radius: 50px;
     padding: 10px 10px;
     margin-top: 90px;
+    margin-bottom: 90px;
 }
 
 `

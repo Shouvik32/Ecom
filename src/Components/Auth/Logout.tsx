@@ -12,9 +12,10 @@ const Logout = () => {
         dispatch(logout)
         navigate("/login")
     }
+
   return (
     <div>
-      <button onClick={handleLogout}>
+      <button className='auth' onClick={handleLogout}>
         Logout
       </button>
     </div>
