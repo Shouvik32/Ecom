@@ -1,5 +1,5 @@
 
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { headerStyles } from './HeaderStyles';
 import { Badge } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -15,13 +15,13 @@ const Header = () => {
     const goToCart=()=>{
       console.log("clicked");
       
-   //    if(token){
-   //       navigate("/cart")
-   //    }
-   //    else{
-   //       navigate("/login")
-   //    }
-   //  
+      // if(token){
+      //    navigate("/cart")
+      // }
+      // else{
+      //    navigate("/login")
+      // }
+    
    navigate("/cart")
     
    
@@ -71,8 +71,8 @@ const Header = () => {
                      </li>
                   </ul>
                </div>
-               <button className="auth" onClick={()=>navigate("/login")}>Login</button>
-               {localStorage.token&&<Logout/>}
+              {localStorage.token.length<=0&&<button className="auth" onClick={()=>navigate("/login")}>Login</button>} 
+               {localStorage.token.length>0&&<Logout/>}
             </nav>
          </div>
          </div>

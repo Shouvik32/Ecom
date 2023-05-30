@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
-import { getCartProducts,removeFromCart,addToCart, getTotalPrice, getTotalAmount } from '../../Redux/Slice/cart.slice'
+import { getCartProducts,removeFromCart,addToCart, getTotalPrice, getTotalAmount, deteteFromCart } from '../../Redux/Slice/cart.slice'
 
 const CartList = () => {
     let navigate=useNavigate();
@@ -30,7 +30,6 @@ const CartList = () => {
                          {cartList.length>0?cartList.map((cart)=>(
             
                           <>
-   
                          <div className="container">
                           <div className="card">
                             <div className="container-fliud">
@@ -48,7 +47,7 @@ const CartList = () => {
                             <input readOnly value={cart.amount}/>
                                <button className='btn' onClick={()=>dispatch(addToCart(cart))}>+</button></div>
                             <p style={{marginTop:"45px"}}className=" col-md-6">$ {(cart.price*cart.amount).toFixed(2)}</p>
-
+                            <button onClick={()=>dispatch(deteteFromCart(cart.id))}>del</button>
                             </div>
                            
                            </div>

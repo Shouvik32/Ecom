@@ -1,17 +1,26 @@
-import React, { useState,useEffect } from 'react'
-
+import React, { useState,useRef,useEffect } from 'react';
 interface props{
-   setQuery:(data:any)=> void
+   setQuery:(data:string)=> void
 }
 
-const Banner = ({setQuery}:props) => {
+const Banner:React.FC<props> = ({setQuery}:props) => {
     const [search,setSearch]=useState<string>("")
+    const searchref=useRef<HTMLButtonElement | null>(null)
     useEffect(() => {
       
-    console.log(search);
+   if(search.length<=0){
+      searchref.current?.click()
+     setTimeout(() => {
+      window.scroll({ 
+         top: 400,
+         behavior: "smooth",
+   })
+     }, 1000);
+   }
     
      
     }, [search])
+    
     
   return (
     <>
@@ -32,11 +41,15 @@ const Banner = ({setQuery}:props) => {
                           
                         </div>
                        <div className="button_main">
-                         <input type="text" className="Enter_text " placeholder="Search for Products" name="" value={search} onChange={(e)=>setSearch(e.target.value)}/>
-                            <button className="search_text" onClick={()=>{
+                         <input type="text" className="Enter_text " placeholder="Search for Products" name="" value={search} onChange={(e)=>{
+                           setSearch(e.target.value)
+                           setTimeout(() => {
+                              searchref.current?.click()
+                           }, 2000)}}/>
+                            <button ref={searchref} className="search_text" onClick={()=>{
                                setQuery(search)
                                window.scroll({ 
-                                 top: 500,
+                                 top: 700,
                                  behavior: "smooth",
                            })
                                }}>Search</button> 

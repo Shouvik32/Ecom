@@ -28,12 +28,19 @@ const cartSlice=createSlice({
                 return state.filter((product)=>product.id!==action.payload)
             }
 
+        },
+        deteteFromCart:(state,action:PayloadAction<Number>)=>{
+            //const selectedProductIndex=state.findIndex(product=>product.id===action.payload)
+            console.log("here");
+            
+            return state.filter((product)=>product.id!==action.payload)
+                
         }
     }
 })
 
-export const {addToCart,removeFromCart}=cartSlice.actions;
+export const {addToCart,removeFromCart,deteteFromCart}=cartSlice.actions;
 export const getCartProducts=(state: RootState)=> state.cartSlice
-export const getTotalAmount=(state: RootState)=> state.cartSlice.reduce((acc,next)=>(acc+=next.amount),0)
-export const getTotalPrice=(state: RootState)=> state.cartSlice.reduce((acc,next)=>(acc+=next.amount*next.price),0)
+export const getTotalAmount=(state: RootState)=> state.cartSlice.reduce((acc,current)=>(acc+=current.amount),0)
+export const getTotalPrice=(state: RootState)=> state.cartSlice.reduce((acc,current)=>(acc+=current.amount*current.price),0)
 export default cartSlice.reducer;

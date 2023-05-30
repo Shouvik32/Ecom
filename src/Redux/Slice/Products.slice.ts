@@ -46,6 +46,6 @@ export let initialproductsList:Product[]=[]
     })
 
     export const {addProduct,removeProduct}=productSlice.actions;
-    export const getProducts=(state:RootState)=> state.ProductsSlice
-    export const getProduct=(state:RootState)=> state.ProductsSlice
+    export const getProducts=(state:RootState)=> state.ProductsSlice;
+    export const getProduct=(state:RootState)=> state.ProductsSlice;
     export default productSlice.reducer;

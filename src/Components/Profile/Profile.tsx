@@ -5,7 +5,7 @@ import {addUser,addToken,login} from '../../Redux/Slice/LoginSlice';
 
 const Profile:React.FC = () => {
     const userdetails=useSelector((state:any)=>state.LoginSlice)
-    const [user,setUser]=useState<login|undefined>()
+    const [user,setUser]=useState<login | undefined>()
     useEffect(() => {     
     console.log(userdetails);
     }, [])

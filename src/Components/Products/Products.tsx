@@ -10,7 +10,7 @@ import Category from '../Categories/Category';
 
 
 const Products: React.FC =() =>{
-  const setSearch=(data:any)=>{
+  const setSearch=(data:string)=>{
     setdata(data)
     console.log(data);
     
@@ -48,7 +48,7 @@ const Products: React.FC =() =>{
    {/* { <button onClick={()=>navigate("/cart")}>Go to cart</button>} */}
     <Grid container spacing={3} >
     
-      {products?.length>0&&products.filter(product => product.title.substring(0,data.length).toLowerCase()===(data)).map((product:Product)=>(
+      {products?.length>0&&products.filter(product => product.title?.toLowerCase().includes(data)).map((product:Product)=>(
           <Grid item xs={4} key={product.id} >
         <div  className="product" onClick={()=>{
             navigate(`/product/${product.id}`)
