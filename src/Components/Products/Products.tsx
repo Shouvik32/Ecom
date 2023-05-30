@@ -10,9 +10,15 @@ import Category from '../Categories/Category';
 
 
 const Products: React.FC =() =>{
+  const setSearch=(data:any)=>{
+    setdata(data)
+    console.log(data);
+    
+ }
     let navigate=useNavigate();
         const dispatch=useDispatch<AppDispatch>()
         const [load,setload]=useState<boolean>(false)
+        const [data,setdata]=useState<string>("")
         const [products,setproducts]=useState<Product[]>([])
         const [open,setopen]=useState<boolean>(false)
         useEffect(()=>{
@@ -34,7 +40,7 @@ const Products: React.FC =() =>{
   
   return (
     <>
-   <Banner/>
+   <Banner setQuery={setSearch}/>
    <Category/>
     <h2  className="list">List of products</h2>
    {!load&& <div className='product-list'>
@@ -42,7 +48,7 @@ const Products: React.FC =() =>{
    {/* { <button onClick={()=>navigate("/cart")}>Go to cart</button>} */}
     <Grid container spacing={3} >
     
-      {products?.length>0&&products.map((product:Product)=>(
+      {products?.length>0&&products.filter(product => product.title.substring(0,data.length).toLowerCase()===(data)).map((product:Product)=>(
           <Grid item xs={4} key={product.id} >
         <div  className="product" onClick={()=>{
             navigate(`/product/${product.id}`)

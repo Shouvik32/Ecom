@@ -44,20 +44,22 @@ const CartList = () => {
                               <p className="product-title"> {cart.title}</p>
                             </div>
                            
-           <button className='btn' onClick={()=>dispatch(removeFromCart(cart.id))}>-</button>
-           <p>{cart.amount}</p>
-             <button className='btn' onClick={()=>dispatch(addToCart(cart))}>+</button>
-                            <p className="product-title col-md-6">$ {(cart.price*cart.amount).toFixed(2)}</p>
+                            <div className="cartAction"><button className='btn' onClick={()=>dispatch(removeFromCart(cart.id))}>-</button>
+                            <input readOnly value={cart.amount}/>
+                               <button className='btn' onClick={()=>dispatch(addToCart(cart))}>+</button></div>
+                            <p style={{marginTop:"45px"}}className=" col-md-6">$ {(cart.price*cart.amount).toFixed(2)}</p>
 
                             </div>
                            
                            </div>
                           </div>
                         </div>
-          </>)):<><span className='empty_cart'>
-<span>No Items have been added to cart</span><br/>
-<button className='btn shop' onClick={()=>navigate("/")}>Shop Now</button>
-</span></>}
+                      </>)):
+                      <><span className='empty_cart'>
+                        <span>No Items have been added to cart</span><br/>
+                            <button className='btn shop' onClick={()=>navigate("/")}>Shop Now</button>
+                        </span>
+                      </>}
                      </div>
                    </div>
                  </div>

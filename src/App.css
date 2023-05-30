@@ -1039,7 +1039,7 @@ button {
   
   .card {
     margin-top: 50px;
-    padding: 3em;
+    
     line-height: 1.5em; }
   
   @media screen and (min-width: 997px) {
@@ -1093,12 +1093,7 @@ button {
     border-radius: 2px; }
     .color:first-of-type {
       margin-left: 20px; }
-      @media (min-width: 1025px) {
-        .h-custom {
-        height: 100vh !important;
-        }
-        }
-        
+    
         .number-input input[type="number"] {
         -webkit-appearance: textfield;
         -moz-appearance: textfield;
@@ -1414,6 +1409,16 @@ button {
   border-bottom: 1px solid #fff;
   outline: none;
   background: transparent;
+}
+.cartAction{
+    display: flex;
+    flex-direction: row;
+}
+.cartAction input{
+    height: 30px;
+    width: 50px;
+    margin: 50px 2px!important;
+    text-align: center;
 }
 .login-box .user-box label {
   position: absolute;

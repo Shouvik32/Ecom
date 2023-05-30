@@ -32,7 +32,7 @@ export let initialproductsList:Product[]=[]
                 return [...state,action.payload]
             },
             removeProduct:(state,action:PayloadAction<Number>)=>{
-                return state.filter((product:any)=>product.id!==action.payload)
+                return state.filter((product:Product)=>product.id!==action.payload)
             }
         },
         extraReducers:(builder)=>{
