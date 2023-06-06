@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react';
 import { useDispatch,useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { Product,fetchSingleProduct} from '../../Redux/Slice/Products.slice';
-import { AppDispatch } from '../../Redux/store/store';
+import { AppDispatch, RootState } from '../../Redux/store/store';
 import { addToCart } from '../../Redux/Slice/cart.slice';
 import { Alert, Rating, Snackbar } from '@mui/material';
 
@@ -13,7 +13,7 @@ const SingleProduct:React.FC = () => {
    const [load,setload] =useState<boolean>(false)
    const dispatch=useDispatch<AppDispatch>()
    const [products,setproducts]=useState<Product>()
-    let product:any=useSelector((state:any)=>state.ProductsSlice)
+    let product:any=useSelector((state:RootState)=>state.ProductsSlice)
     
     useEffect(()=>{
         setload(true)

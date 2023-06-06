@@ -4,7 +4,6 @@ import { RootState } from "../store/store";
 interface Cart extends Product{
     amount:number
 }
-
 const cartSlice=createSlice({
     name:"Cart",
     initialState:[] as Cart[],

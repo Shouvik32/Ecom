@@ -15,9 +15,8 @@ const CartList = () => {
     },[cartList])
   return (
     <>
-
         <section className="h-100 h-custom" style={{backgroundColor: '#eee'}}>
-           <div className="container h-100 py-5">
+           <div className="container-fluid h-100 py-5">
              <div className="row d-flex justify-content-center align-items-center h-100">
                <div className="col">
                  <div className="card shopping-cart" style={{borderRadius: '15px'}}>
@@ -28,7 +27,6 @@ const CartList = () => {
                          <div className="d-flex align-items-center mb-5">
                          <div className="flex-grow-1 ms-3">
                          {cartList.length>0?cartList.map((cart)=>(
-            
                           <>
                          <div className="container">
                           <div className="card">
@@ -47,7 +45,7 @@ const CartList = () => {
                             <input readOnly value={cart.amount}/>
                                <button className='btn' onClick={()=>dispatch(addToCart(cart))}>+</button></div>
                             <p style={{marginTop:"45px"}}className=" col-md-6">$ {(cart.price*cart.amount).toFixed(2)}</p>
-                            <button onClick={()=>dispatch(deteteFromCart(cart.id))}>del</button>
+                            <button onClick={()=>dispatch(deteteFromCart(cart.id))}><i className="fa fa-trash" aria-hidden="true"></i></button>
                             </div>
                            
                            </div>
@@ -65,8 +63,8 @@ const CartList = () => {
                </div>
              </div>
            </div>
-           </div>
-           </div>
+        </div>
+       </div>
            </div>
          </section>
        {cartList.length>0&&<> 
@@ -80,10 +78,10 @@ const CartList = () => {
         </>}
           {
 
-cartList.length<0&&<><span className='empty_cart'>
-<span>No Items have been added to cart</span><br/>
+cartList.length<0&&<><div className='empty_cart'>
+<div>No Items have been added to cart</div><br/>
 <button className='btn shop' onClick={()=>navigate("/")}>Shop Now</button>
-</span>
+</div>
 </>
           }
 
@@ -126,12 +124,12 @@ cartList.length<0&&<><span className='empty_cart'>
 export default CartList;
 
  {/* //     <div key={cart.id} className="product">
-        //          <img src={cart.image} style={{height:'50px',width:'50px'}}/>
-        //     <h4 className="productName">{cart.title}</h4>
-        //     <p className="productPrice">{`$${cart.price}`}</p>
-        //     <p>{cart.amount}</p>
-        //     <button className='btn' onClick={()=>dispatch(removeFromCart(cart.id))}>-</button>
-        //     <button className='btn' onClick={()=>dispatch(addToCart(cart))}>+</button>
+                 <img src={cart.image} style={{height:'50px',width:'50px'}}/>
+            <h4 className="productName">{cart.title}</h4>
+            <p className="productPrice">{`$${cart.price}`}</p>
+            <p>{cart.amount}</p>
+           <button className='btn' onClick={()=>dispatch(removeFromCart(cart.id))}>-</button>
+            <button className='btn' onClick={()=>dispatch(addToCart(cart))}>+</button>
           
         
         // </div> */}

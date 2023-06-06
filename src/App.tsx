@@ -7,7 +7,7 @@ import Header from './Components/Header/Header';
 import SingleProduct from './Components/Products/SingleProduct';
 import Category from './Components/Categories/Category';
 import ProductByCategory from './Components/Categories/ProductByCategory';
-import Banner from './Components/Banner/Banner';
+//import Banner from './Components/Banner/Banner';
 import Login from './Components/Auth/Login';
 import Profile from './Components/Profile/Profile';
 
