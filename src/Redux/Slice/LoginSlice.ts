@@ -73,12 +73,12 @@ export const LoginSlice=createSlice({
             state.gender=gender;
             state.image=image;
             state.email=email;
-           /*localStorage.setItem("username",username)
+            localStorage.setItem("username",username)
             localStorage.setItem("firstName",firstName)
             localStorage.setItem("lastName",lastName)
             localStorage.setItem("gender",gender)
             localStorage.setItem("image",image)
-            localStorage.setItem("email",email)*/
+            localStorage.setItem("email",email)
             localStorage.setItem("token",token)
           })
     }

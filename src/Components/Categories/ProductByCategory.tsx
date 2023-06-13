@@ -6,10 +6,11 @@ import { AppDispatch } from '../../Redux/store/store'
 import { addToCart } from '../../Redux/Slice/cart.slice'
 import { Product } from '../../Redux/Slice/Products.slice'
 import { fetchProductsByCategory } from '../../Redux/Slice/Category.slice'
+import Loader from '../Loader/Loader'
 
 
 
-const ProductByCategory = () => {
+const ProductByCategory:React.FC = () => {
     const navigate=useNavigate();
     const {name}=useParams();
     const dispatch=useDispatch<AppDispatch>()
@@ -47,17 +48,13 @@ const ProductByCategory = () => {
         </Grid>
         )}
         </Grid>}
-        {load &&<div className="spinner-square">
-        <div className="square-1 square"></div>
-        <div className="square-2 square"></div>
-        <div className="square-3 square"></div>
-</div>}
+        {load &&<Loader/>}
         <Snackbar
-  open={open}
-  onClose={()=>setopen(false)}
-  autoHideDuration={2000}
-  message="1 Item added to Cart"
->
+         open={open}
+         onClose={()=>setopen(false)}
+         autoHideDuration={2000}
+         message="1 Item added to Cart"
+          >
  <Alert onClose={()=>setopen(false)}  severity="success" sx={{ width: '100%' }}>
     Item Has Been added to cart
   </Alert>

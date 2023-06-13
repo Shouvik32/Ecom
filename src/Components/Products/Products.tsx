@@ -7,6 +7,7 @@ import { Link,useNavigate } from 'react-router-dom';
 import { Alert, Grid, Snackbar } from '@mui/material';
 import Banner from '../Banner/Banner';
 import Category from '../Categories/Category';
+import Loader from '../Loader/Loader';
 
 
 const Products: React.FC =() =>{
@@ -69,17 +70,13 @@ const Products: React.FC =() =>{
 
     </Grid>
     </div>}
-    {load &&<div className="spinner-square">
-        <div className="square-1 square"></div>
-        <div className="square-2 square"></div>
-        <div className="square-3 square"></div>
-</div>}
+    {load &&<Loader/>}
     <Snackbar
-  open={open}
-  onClose={()=>setopen(false)}
-  autoHideDuration={2000}
-  message="1 Item added to Cart"
->
+     open={open}
+      onClose={()=>setopen(false)}
+       autoHideDuration={2000}
+       message="1 Item added to Cart"
+    >
  <Alert onClose={()=>setopen(false)}  severity="success" sx={{ width: '100%' }}>
     Item Has Been added to cart
   </Alert>

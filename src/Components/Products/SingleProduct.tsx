@@ -5,6 +5,7 @@ import { Product,fetchSingleProduct} from '../../Redux/Slice/Products.slice';
 import { AppDispatch, RootState } from '../../Redux/store/store';
 import { addToCart } from '../../Redux/Slice/cart.slice';
 import { Alert, Rating, Snackbar } from '@mui/material';
+import Loader from '../Loader/Loader';
 
 const SingleProduct:React.FC = () => {
    const {id}=useParams();
@@ -72,11 +73,7 @@ const SingleProduct:React.FC = () => {
     Item Has Been added to cart
   </Alert>
  </Snackbar>
- {load && <div className="spinner-square">
-        <div className="square-1 square"></div>
-        <div className="square-2 square"></div>
-        <div className="square-3 square"></div>
-</div> }
+ {load && <Loader/> }
 </>
   )
 }
