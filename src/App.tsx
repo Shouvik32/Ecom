@@ -16,7 +16,6 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <Header/>
-   
         <Routes>
         <Route path='/' element={<Products/>}/>
         <Route path='/cart' element={<CartList/>}/>

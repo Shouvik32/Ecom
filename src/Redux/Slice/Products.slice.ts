@@ -18,9 +18,9 @@ export let initialproductsList:Product[]=[]
     .then(res=>res.data)
 
   })
-  export const fetchSingleProduct=createAsyncThunk('products/fetchsingleproduct',(id:string)=>{
-    return axios.get(`https://fakestoreapi.com/products/${id}`)
-    .then(res=>res.data)
+  export const fetchSingleProduct=createAsyncThunk('products/fetchsingleproduct', async (id:string)=>{
+    const res = await axios.get(`https://fakestoreapi.com/products/${id}`);
+      return res.data;
 
   })
   

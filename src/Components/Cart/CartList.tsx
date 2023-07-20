@@ -20,7 +20,7 @@ const CartList = () => {
              <div className="row d-flex justify-content-center align-items-center h-100">
                <div className="col">
                  <div className="card shopping-cart" style={{borderRadius: '15px'}}>
-                   <div className="card-body text-black">
+                   <div className="card-body text-black container">
                      <div className="row">
                        <div className="col-lg-6 px-5 py-4">
                         {cartList.length>0&& <h3 className="mb-5 pt-2 text-center fw-bold text-uppercase">Your products</h3>}

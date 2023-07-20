@@ -14,7 +14,7 @@ const SingleProduct:React.FC = () => {
    const [load,setload] =useState<boolean>(false)
    const dispatch=useDispatch<AppDispatch>()
    const [products,setproducts]=useState<Product>()
-    let product:any=useSelector((state:RootState)=>state.ProductsSlice)
+    let product:Product|any=useSelector((state:RootState)=>state.ProductsSlice)
     
     useEffect(()=>{
         setload(true)

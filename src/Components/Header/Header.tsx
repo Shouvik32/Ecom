@@ -18,7 +18,7 @@ const Header = () => {
       // if(token){
       //    navigate("/cart")
       // }
-      // else{
+      // else{ e44e
       //    navigate("/login")
       // }
     
@@ -71,8 +71,8 @@ const Header = () => {
                      </li>
                   </ul>
                </div>
-              {localStorage.token.length<=0&&<button className="auth" onClick={()=>navigate("/login")}>Login</button>} 
-               {localStorage.token.length>0&&<Logout/>}
+              {localStorage?.token&&<button className="auth" onClick={()=>navigate("/login")}>Login</button>} 
+               {localStorage?.token&&<Logout/>}
             </nav>
          </div>
          </div>

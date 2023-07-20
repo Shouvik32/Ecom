@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../Redux/Slice/cart.slice';
 import { Product,fetchProduct} from '../../Redux/Slice/Products.slice';
 import { AppDispatch } from '../../Redux/store/store';
-import { Link,useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Alert, Grid, Snackbar } from '@mui/material';
 import Banner from '../Banner/Banner';
 import Category from '../Categories/Category';
@@ -18,7 +18,7 @@ const Products: React.FC =() =>{
  }
     let navigate=useNavigate();
         const dispatch=useDispatch<AppDispatch>()
-        const [load,setload]=useState<boolean>(false)
+        const [load,setload]=useState<boolean>(false)  
         const [data,setdata]=useState<string>("")
         const [products,setproducts]=useState<Product[]>([])
         const [open,setopen]=useState<boolean>(false)
