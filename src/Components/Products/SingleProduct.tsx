@@ -6,7 +6,7 @@ import { AppDispatch, RootState } from '../../Redux/store/store';
 import { addToCart } from '../../Redux/Slice/cart.slice';
 import { Alert, Rating, Snackbar } from '@mui/material';
 import Loader from '../Loader/Loader';
-
+import { addToWishlist } from '../../Redux/Slice/wishlist.slice';
 const SingleProduct:React.FC = () => {
    const {id}=useParams();
    const [open,setopen]=useState<boolean>(false)
@@ -44,18 +44,24 @@ const SingleProduct:React.FC = () => {
 							<div className="stars">
               {rate&&<Rating name="read-only" value={rate} readOnly />}
 							</div>
-							<span className="review-no">41 reviews</span>
+							<span className="review-no">{product&&product?.rating&&product.rating.count} reviews</span>
 						</div>
 						<p className="product-description">{product.description}</p>
 						<h4 className="price">current price: <span>${product.price}</span></h4>
 						<p className="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
 						
 						<div className="action">
-            <button className='btn add_to_cart' onClick={()=>{ 
-        dispatch(addToCart(product))
-        setopen(true)
-        }}>Add to Cart</button>
-							<button className="like btn btn-default" type="button"><span className="fa fa-heart"></span></button>
+            <button className='btn add_to_cart' 
+             onClick={()=>{ 
+               dispatch(addToCart(product))
+               setopen(true)
+                  }
+               }>Add to Cart</button>
+							<button className="like btn btn-default" type="button" 
+              onClick={()=>{
+                console.log("let us c")
+                dispatch(addToWishlist(product))
+              }}><span className="fa fa-heart"></span></button>
 						</div>
 					</div>
 				</div>

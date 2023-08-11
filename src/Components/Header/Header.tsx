@@ -67,10 +67,16 @@ const Header = () => {
                     <Badge badgeContent={totalAmount>0?totalAmount:'0'} sx={{color:"black"}}>
                     <ShoppingCartIcon/>
                      </Badge>
+
                      </div>
                      </li>
+                     
                   </ul>
+                  
+                    
+                     
                </div>
+               <Link to="/wish"><span className="fa fa-heart"></span></Link>
               {localStorage?.token&&<button className="auth" onClick={()=>navigate("/login")}>Login</button>} 
                {localStorage?.token&&<Logout/>}
             </nav>

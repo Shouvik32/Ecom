@@ -1547,7 +1547,7 @@ button {
 
 @keyframes square-anim {
   0% {
-      height: 80px;
+      height: 40px;
       background-color: #ffd35a;
   }
   20% {
@@ -1561,7 +1561,7 @@ button {
       height: 80px;
   }
   100% {
-      height: 80px;
+      height: 40px;
       background-color: #ffd35a;
   }
 }
