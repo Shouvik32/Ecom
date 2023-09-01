@@ -6,15 +6,18 @@ import { AppDispatch, RootState } from '../../Redux/store/store';
 import { addToCart } from '../../Redux/Slice/cart.slice';
 import { Alert, Rating, Snackbar } from '@mui/material';
 import Loader from '../Loader/Loader';
-import { addToWishlist } from '../../Redux/Slice/wishlist.slice';
+import { addToWishlist, Wish } from '../../Redux/Slice/wishlist.slice';
 const SingleProduct:React.FC = () => {
    const {id}=useParams();
    const [open,setopen]=useState<boolean>(false)
+   const [listopen,setlistopen]=useState<boolean>(false)
    const [rate,setrate]=useState<number>(0)
    const [load,setload] =useState<boolean>(false)
    const dispatch=useDispatch<AppDispatch>()
    const [products,setproducts]=useState<Product>()
+   const [wishExists,setwishExists]=useState<any>()
     let product:Product|any=useSelector((state:RootState)=>state.ProductsSlice)
+    let wish:Product|any=useSelector((state:RootState)=>state.wishlistSlice)
     
     useEffect(()=>{
         setload(true)
@@ -26,6 +29,22 @@ const SingleProduct:React.FC = () => {
        products&&setload(false)
         product&& product?.rating&&product.rating?.rate &&setrate(product.rating.rate)
      },[product,product.rating])
+
+     useEffect(()=>{
+      wish&&console.log(wish)
+      wish.forEach((index:Wish) => {
+        if(id&&index.id==parseInt(id)){
+         setTimeout(() => {
+          setwishExists(true)
+         }, 2000); 
+        }
+        else{
+          setwishExists(false)
+        }
+        
+      });
+    },[wish])
+
   return (
     <>
    {!load &&<> 
@@ -48,7 +67,7 @@ const SingleProduct:React.FC = () => {
 						</div>
 						<p className="product-description">{product.description}</p>
 						<h4 className="price">current price: <span>${product.price}</span></h4>
-						<p className="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
+						<p className="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>({product&&product?.rating&&product.rating.count}  votes)</strong></p>
 						
 						<div className="action">
             <button className='btn add_to_cart' 
@@ -59,8 +78,15 @@ const SingleProduct:React.FC = () => {
                }>Add to Cart</button>
 							<button className="like btn btn-default" type="button" 
               onClick={()=>{
-                console.log("let us c")
+               // console.log("let us c")
+           
+               
+              setTimeout(() => {
                 dispatch(addToWishlist(product))
+              }, 700);
+                
+                setlistopen(true)
+                
               }}><span className="fa fa-heart"></span></button>
 						</div>
 					</div>
@@ -75,8 +101,18 @@ const SingleProduct:React.FC = () => {
   autoHideDuration={2000}
   message="1 Item added to Cart"
 >
- <Alert onClose={()=>setopen(false)}  severity="success" sx={{ width: '100%' }}>
+ <Alert onClose={()=>setopen(false)}  severity="success" sx={{ width: '100%'  }}>
     Item Has Been added to cart
+  </Alert>
+ </Snackbar>
+ <Snackbar
+  open={listopen}
+  onClose={()=>setlistopen(false)}
+  autoHideDuration={2000}
+  message="1 Item added to wishlist"
+>
+ <Alert onClose={()=>setopen(false)}  severity="success" sx={{ width: '100%' }}>
+   {wishExists?`Item is already added to Wishlist`:`Item Has Been added to Wishlist`} 
   </Alert>
  </Snackbar>
  {load && <Loader/> }

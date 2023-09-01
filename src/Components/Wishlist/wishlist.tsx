@@ -33,9 +33,9 @@ const Wishlist:React.FC = () => {
                         {wishlist.length>0&& <h3 className="mb-5 pt-2 text-center fw-bold text-uppercase">Your Wishlist products</h3>}
                          <div className="d-flex align-items-center mb-5">
                          <div className="flex-grow-1 ms-3">
-                         {wishlist.length>0?wishlist.map((cart:any)=>(
-                          <>
-                         <div className="container">
+                         {wishlist.length>0?wishlist.map((cart:any,key:number)=>(
+                        <div key={key}>
+                         <div  className="container">
                           <div className="card">
                             <div className="container-fliud">
                               <div className="wrapper row">
@@ -55,7 +55,8 @@ const Wishlist:React.FC = () => {
                            </div>
                           </div>
                         </div>
-                      </>)):
+                      </div>
+                      )):
                       <><span className='empty_cart'>
                         <span>Wishlist has no products</span><br/>
                             <button className='btn shop' onClick={()=>navigate("/")}>Shop or add to wishlist Now</button>

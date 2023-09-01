@@ -2,7 +2,11 @@ import { createAsyncThunk, createSlice,PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 import { RootState } from "../store/store";
 
-
+const config = {
+    headers:{
+        "Access-Control-Allow-Origin": "*"
+    }
+  };
 export interface Product{
     id:number,
     title:string,
@@ -14,7 +18,7 @@ export interface Product{
 export let initialproductsList:Product[]=[]
 
    export const fetchProduct=createAsyncThunk('products/fetchproduct',()=>{
-    return axios.get("https://fakestoreapi.com/products")
+    return axios.get("https://fakestoreapi.com/products",config)
     .then(res=>res.data)
 
   })
@@ -23,7 +27,6 @@ export let initialproductsList:Product[]=[]
       return res.data;
 
   })
-  
     const productSlice=createSlice({
         name:'products',
         initialState:initialproductsList,
@@ -37,15 +40,14 @@ export let initialproductsList:Product[]=[]
         },
         extraReducers:(builder)=>{
             builder.addCase(fetchProduct.fulfilled,(state,action: PayloadAction<Product[]>)=>{
-                return state=action.payload
+                return state=action.payload;
             })
             .addCase(fetchSingleProduct.fulfilled,(state,action: PayloadAction<any>)=>{
-                return state=action.payload
+                return state=action.payload;
             })
         }
     })
-
     export const {addProduct,removeProduct}=productSlice.actions;
     export const getProducts=(state:RootState)=> state.ProductsSlice;
     export const getProduct=(state:RootState)=> state.ProductsSlice;
-    export default productSlice.reducer;
+    export default productSlice.reducer;    

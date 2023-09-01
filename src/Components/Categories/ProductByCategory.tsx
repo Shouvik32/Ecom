@@ -23,7 +23,7 @@ const ProductByCategory:React.FC = () => {
         
         setproduct(null)
         setLoad(true)
-     name && dispatch(fetchProductsByCategory(name))
+        name && dispatch(fetchProductsByCategory(name))
     }, [])
     useEffect(()=>{
         product&&setLoad(false)

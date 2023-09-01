@@ -33,25 +33,25 @@ console.log(category);
     <>
     <style>{styles}</style>
     
-      {!load&&<div className="container-fluid">
+      {!load&&<div className="container">
         
-         <div className="category_section">
+        
          
-         <div className="row">
+         <div className="category_section row">
          
         {category.length>0&& category.map((index:string,key:number)=>
         <div key={key} className="col-lg-3 col-sm-3 main">
-          <div   className="col">
+          
          <div className="box_main">
            
            {index&& <h4 className="fashion_text" onClick={()=>navigate(`/category/${index}`)}>{index?.toString().toUpperCase()}</h4>}
          </div>
-      </div>
+    
          </div>
         )}
        
         </div>
-         </div>
+         
         
          </div>}
       {load && <div className="spinner-square">
